@@ -1,0 +1,3 @@
+{"timestamp":"2024-07-14T09:15:23Z","level":"INFO","service":"auth","message":"User login success"}
+{"timestamp":"2024-07-14T09:16:01Z","level":"WARN","service":"auth","message":"Slow response from database"}
+{"timestamp":"2024-07-14T09:17:45Z","level":"ERROR","service":"payments","message":"Payment gateway timeout"}
