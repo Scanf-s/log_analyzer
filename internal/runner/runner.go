@@ -1,51 +1,50 @@
 package runner
 
 import (
-	"errors"
 	"log"
-	"os"
-	"strings"
-
 	"log_analyzer/internal/analyzer"
+	"log_analyzer/internal/fileservice"
 )
 
 func Run(logPath string) {
 
 	// 1. LogPath 유효성 검사
-	files, err := CheckDirNotEmpty(logPath)
+	files, err := fileservice.CheckDirNotEmpty(logPath)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// 2. JSON 파일 읽어서 데이터구조 생성
-	entries, err := analyzer.ReadLogFiles(logPath, files)
+	entries, err := fileservice.ReadLogFiles(logPath, files)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	for _, entry := range entries {
-		log.Printf("%+v\n", entry)
-	}
-
+	// 3. 총 로그 개수 계산
 	lineCount := analyzer.LineCounter(entries)
 	log.Printf("Total lines: %d", lineCount)
-}
 
-func CheckDirNotEmpty(logPath string) ([]os.DirEntry, error) {
-	var fileCount = 0
-	files, err := os.ReadDir(logPath)
-	if err != nil {
-		return nil, err
+	// 4. 일자별 로그 개수 계산
+	lineCountByDate := analyzer.LineCountByDate(entries)
+	for date, count := range lineCountByDate {
+		log.Printf("Date: %s, Lines: %d", date, count)
 	}
 
-	for _, file := range files {
-		if !file.IsDir() && strings.HasSuffix(file.Name(), ".log") { // 디렉토리가 아니면서 .log 파일만 카운트
-			fileCount++
-		}
-	}
-	if fileCount == 0 {
-		return nil, errors.New("no log files found")
+	// 5. 전체 로그 레벨 별 개수 및 비율 계산
+	logLevelCount, logLevelRatio := analyzer.TotalLogLevelStats(entries)
+	for level, count := range logLevelCount {
+		log.Printf("Level: %s, Count: %d, Ratio: %f%%", level, count, logLevelRatio[level]*100)
 	}
 
-	return files, nil
+	// 6. 일자 별 로그 레벨 별 개수 및 비율 계산
+	logStatsByDateAndLevel := analyzer.LogStatsByDateAndLevel(entries)
+	for _, stats := range logStatsByDateAndLevel {
+		log.Printf("Date: %s\tLevel: %s\tCount: %d\t Ratio: %f\t", stats["date"], stats["level"], stats["count"], stats["ratio"])
+	}
+
+	// 7. 서비스 별 로그 발생 비율 계산 함수
+	logStatsByService := analyzer.LogStatsByService(entries)
+	for service, ratio := range logStatsByService {
+		log.Printf("Service: %s\tRatio: %f%%\t", service, ratio)
+	}
 }

@@ -1,3 +1,12 @@
-{"timestamp":"2024-07-14T10:01:10Z","level":"INFO","service":"notifications","message":"Daily digest dispatched"}
-{"timestamp":"2024-07-14T10:05:32Z","level":"DEBUG","service":"crawler","message":"Fetched 25 URLs"}
-{"timestamp":"2024-07-14T10:06:18Z","level":"INFO","service":"crawler","message":"Crawler batch completed"}
+{"timestamp":"2024-07-13T10:01:10Z","level":"INFO","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "321", "query": ""}}
+{"timestamp":"2024-07-13T10:02:25Z","level":"ERROR","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "654", "query": ""}}
+{"timestamp":"2024-07-13T10:04:05Z","level":"INFO","service":"crawler","message":{"path": "/crawler/start", "method": "GET", "user_id": "987", "query": ""}}
+{"timestamp":"2024-07-13T10:05:30Z","level":"INFO","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "321", "query": ""}}
+{"timestamp":"2024-07-13T10:06:45Z","level":"ERROR","service":"crawler","message":{"path": "/crawler/start", "method": "GET", "user_id": "654", "query": ""}}
+{"timestamp":"2024-07-13T10:08:15Z","level":"INFO","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "987", "query": ""}}
+{"timestamp":"2024-07-13T10:09:50Z","level":"INFO","service":"crawler","message":{"path": "/crawler/start", "method": "GET", "user_id": "321", "query": ""}}
+{"timestamp":"2024-07-13T10:11:20Z","level":"ERROR","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "654", "query": ""}}
+{"timestamp":"2024-07-13T10:12:35Z","level":"INFO","service":"crawler","message":{"path": "/crawler/start", "method": "GET", "user_id": "987", "query": ""}}
+{"timestamp":"2024-07-13T10:14:00Z","level":"INFO","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "321", "query": ""}}
+{"timestamp":"2024-07-13T10:15:25Z","level":"ERROR","service":"crawler","message":{"path": "/crawler/start", "method": "GET", "user_id": "654", "query": ""}}
+{"timestamp":"2024-07-13T10:17:10Z","level":"INFO","service":"notifications","message":{"path": "/notifications/send", "method": "POST", "user_id": "987", "query": ""}}

@@ -1,3 +1,13 @@
-{"timestamp":"2024-07-14T09:15:23Z","level":"INFO","service":"auth","message":"User login success"}
-{"timestamp":"2024-07-14T09:16:01Z","level":"WARN","service":"auth","message":"Slow response from database"}
-{"timestamp":"2024-07-14T09:17:45Z","level":"ERROR","service":"payments","message":"Payment gateway timeout"}
+{"timestamp":"2024-07-14T09:15:23Z","level":"INFO","service":"auth","message":{"path": "/auth/login", "method": "POST", "user_id": "123", "query": "?redirect=/dashboard"}}
+{"timestamp":"2024-07-14T09:16:45Z","level":"INFO","service":"payments","message":{"path": "/payments/process", "method": "POST", "user_id": "456", "query": ""}}
+{"timestamp":"2024-07-14T09:17:10Z","level":"INFO","service":"auth","message":{"path": "/auth/logout", "method": "GET", "user_id": "123", "query": ""}}
+{"timestamp":"2024-07-14T09:17:45Z","level":"ERROR","service":"payments","message":{"path": "/payments/process", "method": "POST", "user_id": "789", "query": ""}}
+{"timestamp":"2024-07-14T09:18:30Z","level":"INFO","service":"auth","message":{"path": "/auth/login", "method": "POST", "user_id": "456", "query": "?redirect=/profile"}}
+{"timestamp":"2024-07-14T09:19:05Z","level":"INFO","service":"dashboard","message":{"path": "/dashboard/view", "method": "GET", "user_id": "123", "query": ""}}
+{"timestamp":"2024-07-14T09:20:15Z","level":"INFO","service":"auth","message":{"path": "/auth/login", "method": "POST", "user_id": "789", "query": "?redirect=/settings"}}
+{"timestamp":"2024-07-14T09:21:30Z","level":"ERROR","service":"dashboard","message":{"path": "/dashboard/view", "method": "GET", "user_id": "456", "query": ""}}
+{"timestamp":"2024-07-14T09:22:45Z","level":"INFO","service":"payments","message":{"path": "/payments/process", "method": "POST", "user_id": "123", "query": ""}}
+{"timestamp":"2024-07-14T09:23:50Z","level":"INFO","service":"auth","message":{"path": "/auth/logout", "method": "GET", "user_id": "456", "query": ""}}
+{"timestamp":"2024-07-14T09:24:30Z","level":"INFO","service":"dashboard","message":{"path": "/dashboard/view", "method": "GET", "user_id": "789", "query": ""}}
+{"timestamp":"2024-07-14T09:25:15Z","level":"ERROR","service":"payments","message":{"path": "/payments/process", "method": "POST", "user_id": "123", "query": ""}}
+{"timestamp":"2024-07-14T09:26:40Z","level":"INFO","service":"auth","message":{"path": "/auth/login", "method": "POST", "user_id": "456", "query": "?redirect=/home"}}
